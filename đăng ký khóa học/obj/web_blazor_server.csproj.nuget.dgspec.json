@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Baitapnop\\buoi23\\A\\liên hệ khách hàng\\web_blazor_server.csproj": {}
+    "D:\\Baitapnop\\buoi23\\đăng ký khóa  học\\web_blazor_server.csproj": {}
   },
   "projects": {
-    "D:\\Baitapnop\\buoi23\\A\\liên hệ khách hàng\\web_blazor_server.csproj": {
+    "D:\\Baitapnop\\buoi23\\đăng ký khóa  học\\web_blazor_server.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Baitapnop\\buoi23\\A\\liên hệ khách hàng\\web_blazor_server.csproj",
+        "projectUniqueName": "D:\\Baitapnop\\buoi23\\đăng ký khóa  học\\web_blazor_server.csproj",
         "projectName": "web_blazor_server",
-        "projectPath": "D:\\Baitapnop\\buoi23\\A\\liên hệ khách hàng\\web_blazor_server.csproj",
+        "projectPath": "D:\\Baitapnop\\buoi23\\đăng ký khóa  học\\web_blazor_server.csproj",
         "packagesPath": "C:\\Users\\nhan1\\.nuget\\packages\\",
-        "outputPath": "D:\\Baitapnop\\buoi23\\A\\liên hệ khách hàng\\obj\\",
+        "outputPath": "D:\\Baitapnop\\buoi23\\đăng ký khóa  học\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\nhan1\\AppData\\Roaming\\NuGet\\NuGet.Config"

@@ -3,73 +3,89 @@
 
 <PageTitle>Trang chủ</PageTitle>
 <div class="container">
-    <h1 class="text-center mb-3">Customer Contact Form</h1>
-    <EditForm Model="Model" OnValidSubmit="HandleValidSubmit">
+    <h1 class="text-center">Course Registration Form</h1>
+
+    <EditForm Model="model" OnValidSubmit="HandleValidSubmit">
         <DataAnnotationsValidator />
 
-        <div class="form-group">
-            <label class="form-label" for="fullname">Full name *</label>
-            <input class="form-control" name="fullname" id="fullname" placeholder="Enter your full name" @bind="Model.fullname"/>
-            <ValidationMessage class="text-danger" For="@(() => Model.fullname)"/>
+        <div class="form-group mt-3">
+            <label class="form-label" for="fullname">Full Name *</label>
+            <input class="form-control" name="fullname" id="fullname" placeholder="Enter your full name"
+                @bind="model.fullname" />
+            <ValidationMessage class="text-danger" For="@(() => model.fullname)" />
         </div>
-        
+
         <div class="form-group mt-3">
             <label class="form-label" for="email">Email *</label>
-            <input class="form-control" name="email" id="email" placeholder="Enter your email" @bind="Model.email" />
-            <ValidationMessage class="text-danger" For="@(() => Model.email)"/>
+            <input class="form-control" name="email" id="email" placeholder="Enter your email" @bind="model.email" />
+            <ValidationMessage class="text-danger" For="@(() => model.email)" />
         </div>
 
         <div class="form-group mt-3">
-            <label class="form-label" for="PhoneNumber">Phone number *</label>
-            <input class="form-control" name="PhoneNumber" id="PhoneNumber" placeholder="Enter your phone number" @bind="Model.PhoneNumber"/>
-            <ValidationMessage class="text-danger" For="(() => Model.PhoneNumber)"/>
+            <label class="form-label" for="phonenumber">Phone Number *</label>
+            <input class="form-control" name="phonenumber" id="phonenumber" placeholder="Enter your phone number"
+                @bind="model.phonenumber" />
+            <ValidationMessage class="text-danger" For="@(() => model.phonenumber)" />
         </div>
 
         <div class="form-group mt-3">
-            <label class="form-label" for="address">Address</label>
-            <input class="form-control" name="address" id="address" placeholder="Enter your address" @bind="Model.address" />
-            <ValidationMessage class="text-danger" For="(() => Model.address)"/>
-        </div>
-
-        <div class="form-group mt-3">
-            <label class="form-label" for="message">Message *</label>
-            <textarea class="form-control" name="message" id="message" placeholder="Enter your message " style="height: 150px;" @bind="Model.message"/>
-            <ValidationMessage class="text-danger" For="(() => Model.message)"/>
-        </div>
-
-        <div class="form-group mt-3">
-            <label for="SelectService">Select Service *</label>
-            <select class="form-select mt-3" name="SelectService" id="SelectService" @bind="Model.SelectService">
+            <label class="form-label" for="SelectCourse">Select Course *</label>
+            <select class="form-select" name="SelectCourse" id="SelectCourse" @bind="model.SelectCourse">
                 <option value="">Choose...</option>
+                <option value="A">A</option>
             </select>
-            <ValidationMessage class="text-danger" For="(() => Model.SelectService)"/>
+            <ValidationMessage class="text-danger" For="@(() => model.SelectCourse)" />
         </div>
 
+        <InputRadioGroup class="form-group " @bind-Value="model.study" >
+            <label class="form-check-label mt-3" for="study">Study Mode *</label>
+            <div class="d-flex gap-3">
+                @{
+                    string online = "online";
+                    string offline = "offline";
+                }
+                <div class="form-check">
+                    <InputRadio class="form-check-input" id="online" value="online" />
+                    <label class="form-check-label" for="online">Online</label>
+                </div>
 
-        <div class="form-check mt-4 ">
-            <input class="form-check-input" type="checkbox" name="dongY" id="dongY"  @bind="Model.dongY"/>
-            <label class="form-check-laber" for="dongY">I agree to terms and conditions *</label> 
-            <ValidationMessage class="text-danger error-msg" For="(() => Model.dongY)"/>
-           
+                <div class="form-check">
+                    <InputRadio class="form-check-input" id="offline" value="offline" />
+                    <label class="form-check-label" for="offline">Offline</label>
+                </div>
+            </div>
+
+        </InputRadioGroup>
+
+        <div class="form-group mt-3">
+            <label class="form-label">Preferred Start Date *</label>
+            <input class="form-control" type="date" @bind-="model.SelectedDate" />
+            <ValidationMessage class="text-danger" For="@(() => model.SelectedDate)"/>
         </div>
 
-        <div class="form-group mt-4">
-            <button class="btn btn-primary type=" submit" style="width: 100%;">Submit</button>
+        <div class="form-group mt-3">
+            <label class="form-label" for="comments">Comments of Notes</label>
+            <textarea class="form-control" name="comments" id="comments" placeholder="Enter any additional information" style="height: 150px;" @bind="model.comments"/>
+            <ValidationMessage class="text-danger" For="@(() => model.comments)"/>            
+        </div>
+
+        <div class="form-check mt-3">
+            <input class="form-check-control" type="checkbox" name="dognY" id="dognY" @bind="model.dongY"/>
+            <label class="form-check-label" for="dognY">I agree to the terms and conditions *</label>
+            <ValidationMessage class="text-danger error-msg" For="@(() => model.dongY)"/>
+        </div>
+
+        <div class="form-group mt-3">
+            <button class="btn btn-success w-100">Register</button>
         </div>
     </EditForm>
 </div>
-
-
-
-
 @code {
-    Register Model = new Register();
+    Register model = new Register();
     public async Task HandleValidSubmit()
     {
         Console.WriteLine("submit");
-        Console.WriteLine(JsonSerializer.Serialize(Model));
+        Console.WriteLine(JsonSerializer.Serialize(model));
     }
-
-
 
 }
